@@ -4,10 +4,18 @@ const bodyParser = require ('body-parser');
 const cors = require ('cors');
 const passport = require ('passport');
 const mongoose = require ('mongoose');
+const model = require('./model/database.js');
+
+mongoose.connect(model.database);
+
+
+
 
 // require express app
 
 const app = express();
+
+const users = require('./routes/users');
 
 
 // set port or env
@@ -17,8 +25,22 @@ app.set ('port', process.env.PORT|| 3000);
 
 app.use (cors ());
 
+// set static
+
+app.use (express.static (path.join (__dirname, 'public')));
 
 
+// use body bodyParser
+
+app.use (bodyParser.json());
+
+app.use ('/users', users);
+
+
+
+
+
+/*
 
   app.get('/', function (req, res) {
   res.send('MyAuthentication App Home Page');
@@ -29,6 +51,7 @@ app.use (cors ());
 
 });
 
+*/
 
 
 //custom 404 page
