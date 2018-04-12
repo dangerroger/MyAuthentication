@@ -1,7 +1,23 @@
 const express = require ('express');
+const path = require ('path');
+const bodyParser = require ('body-parser');
+const cors = require ('cors');
+const passport = require ('passport');
+const mongoose = require ('mongoose');
+
+// require express app
+
 const app = express();
 
+
+// set port or env
 app.set ('port', process.env.PORT|| 3000);
+
+// use cors middleware
+
+app.use (cors ());
+
+
 
 
   app.get('/', function (req, res) {
