@@ -1,0 +1,31 @@
+{
+  "name": "myauthentication",
+  "version": "1.0.0",
+  "description": "MyAuthentication boilerplate using node, express and mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dangerroger/MyAuthentication.git"
+  },
+  "keywords": [
+    "authentication"
+  ],
+  "author": "Dr Rahul Seewal & Sonia Seewal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dangerroger/MyAuthentication/issues"
+  },
+  "homepage": "https://github.com/dangerroger/MyAuthentication#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.14",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.3",
+    "passport": "^0.4.0"
+  }
+}
