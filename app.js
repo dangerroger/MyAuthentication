@@ -4,13 +4,24 @@ const bodyParser = require ('body-parser');
 const cors = require ('cors');
 const passport = require ('passport');
 const mongoose = require ('mongoose');
-const model = require('./model/database.js');
+const config = require('./config/database.js');
+// connection to mongoDB
+mongoose.connect(config.database);
 
-mongoose.connect(model.database);
+// on connection
 
+mongoose.connection.on (
+  'connected', () => {
+    console.log('connected to database '+ config.database);
+  }
+);
+// on Error
 
-
-
+mongoose.connection.on (
+  'error', (error) => {
+    console.log(' database error '+ err);
+  }
+);
 // require express app
 
 const app = express();
@@ -36,22 +47,6 @@ app.use (bodyParser.json());
 
 app.use ('/users', users);
 
-
-
-
-
-/*
-
-  app.get('/', function (req, res) {
-  res.send('MyAuthentication App Home Page');
-});
-
-  app.get ('/about', function (req, res){
-  res.send ('About MyAuthentication App');
-
-});
-
-*/
 
 
 //custom 404 page
